@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz MDFEST</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- FULLSCREEN BUTTON -->
+    <div class="fullscreen-wrap">
+      <button class="btn btn-warning fullscreen-btn" id="fullscreenBtn">Full Screen</button>
+    </div>
+
+    <!-- START SCREEN -->
+    <div id="startScreen">
+      <h1>Quiz </h1>
+
+      <input type="text" id="usernameInput" placeholder="Masukkan Username..." maxlength="20">
+
+      <button class="btn" onclick="startQuiz()">Start Quiz</button>
+
+      <div class="rank-title">Top Ranking</div>
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Skor</th>
+            <th>Waktu</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody">
+          <tr><td colspan="4">Belum ada data</td></tr>
+        </tbody>
+      </table>
+
+      <div class="admin-box">
+        <h3>Admin Panel</h3>
+        <div class="admin-buttons">
+          <button class="btn btn-danger" onclick="resetRanking()">Reset Ranking</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ SCREEN -->
+    <div id="quizScreen" class="hidden">
+      <div class="top-bar">
+        <div>Soal: <span id="qNumber">1</span>/5</div>
+        <div>Skor: <span id="scoreNow">0</span></div>
+        <div>⏱️ Waktu: <span id="timeNow">0</span>s</div>
+      </div>
+
+      <div class="question-box">
+        <div class="question-title" id="questionText">Soal tampil di sini</div>
+        <div class="choices" id="choicesBox"></div>
+
+        <div class="info hidden" id="feedbackBox"></div>
+
+        <button class="btn next-btn" id="nextBtn" onclick="nextQuestion()">Next ➜</button>
+      </div>
+    </div>
+
+    <!-- RESULT SCREEN -->
+    <div id="resultScreen" class="hidden">
+      <div class="result-box">
+        <h2>Hasil Quiz</h2>
+        <div class="score" id="finalScore">0</div>
+        <p id="finalMessage">Pesan akhir</p>
+        <p><b>Username:</b> <span id="finalUser"></span></p>
+        <p><b>Waktu:</b> <span id="finalTime"></span> detik</p>
+
+        <button class="btn restart-btn" onclick="restartQuiz()">Peserta Berikutnya</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
